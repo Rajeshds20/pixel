@@ -1,0 +1,132 @@
+/* Homepage.css */
+.homepage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.description {
+    font-size: 1.2em;
+}
+
+.events-section,
+.gallery-section,
+.sponsors-section,
+.coordinators-section,
+.contact-section {
+    margin-bottom: 50px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.events,
+.gallery,
+.sponsors,
+.coordinators,
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.event,
+.gallery-img,
+.sponsor-img {
+    margin: 10px;
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event:hover,
+.gallery-img:hover,
+.sponsor-img:hover {
+    transform: scale(1.05);
+}
+
+.coordinator-info,
+.contact-detail {
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    margin-left: -150px;
+    animation: slideInUp 1s ease-in-out;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .event,
+    .gallery-img,
+    .sponsor-img {
+        width: 100%;
+    }
+}
