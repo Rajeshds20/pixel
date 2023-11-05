@@ -1,5 +1,6 @@
 import { useState } from 'react';
-// import './FAQPage.css';
+import ArrowDown from '../assets/img/arrowdown.png';
+import ArrowUp from '../assets/img/arrowup.png';
 
 const FAQPage = () => {
     const [selectedQuestion, setSelectedQuestion] = useState(null);
@@ -53,6 +54,11 @@ Laboris laboris adipisicing do veniam cupidatat dolor quis ipsum amet eiusmod ve
                 <div className="faq-item" key={index}>
                     <h3 onClick={() => toggleQuestion(index)} className="faq-question">
                         {item.question}
+                        {selectedQuestion === index ? (
+                            <img className="faq-arrow" src={ArrowUp} alt="arrowup" />
+                        ) : (
+                            <img className="faq-arrow" src={ArrowDown} alt="arrowdown" />
+                        )}
                     </h3>
                     <p className={`faq-answer ${selectedQuestion === index ? 'open' : ''}`}>
                         {item.answer}

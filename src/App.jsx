@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage';
 import NavBar from './components/NavBar';
 import RegisterPage from './pages/RegisterPage';
 import FAQPage from './pages/FAQPage';
+import EventsPage from './pages/EventsPage'
 
 const route = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const route = createBrowserRouter([
   },
   {
     path: '/event/:eventId',
-    element: <h1>Event Page {window.location.href.split('/')[window.location.href.split('/').length - 1]}</h1>,
+    element: <EventsPage />,
   },
   {
     path: '/*',
