@@ -1,12 +1,24 @@
+import { useState } from 'react';
+// import './SponsorsSection.css';
 
 const SponsorsSection = () => {
+    const [sponsors] = useState([
+        { src: 'https://picsum.photos/seed/picsum/200/300', name: 'Sponsor 1', details: 'Details about Sponsor 1' },
+        { src: 'https://picsum.photos/seed/picsum/200/300', name: 'Sponsor 2', details: 'Details about Sponsor 2' },
+        { src: 'https://picsum.photos/seed/picsum/200/300', name: 'Sponsor 3', details: 'Details about Sponsor 3' },
+        // Add more sponsors as needed
+    ]);
+
     return (
         <div className="sponsors-section">
             <h2 className="section-title">Sponsors</h2>
             <div className="sponsors">
-                <img src="sponsor1.png" alt="Sponsor 1" className="sponsor-img" />
-                <img src="sponsor2.png" alt="Sponsor 2" className="sponsor-img" />
-                <img src="sponsor3.png" alt="Sponsor 3" className="sponsor-img" />
+                {sponsors.map((sponsor, index) => (
+                    <div key={index} className="sponsor-card">
+                        <img src={sponsor.src} alt={sponsor.name} className="sponsor-img" />
+                        <div className="sponsor-details">{sponsor.details}</div>
+                    </div>
+                ))}
             </div>
         </div>
     );

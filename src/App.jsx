@@ -3,6 +3,8 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import NavBar from './components/NavBar';
+import RegisterPage from './pages/RegisterPage';
+import FAQPage from './pages/FAQPage';
 
 const route = createBrowserRouter([
   {
@@ -11,11 +13,11 @@ const route = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <h1>Register Page</h1>,
+    element: <RegisterPage />,
   },
   {
     path: '/faq',
-    element: <h1>FAQ Page</h1>,
+    element: <FAQPage />,
   },
   {
     path: '/event/:eventId',
