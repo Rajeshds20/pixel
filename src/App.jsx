@@ -5,7 +5,8 @@ import Homepage from './pages/Homepage';
 import NavBar from './components/NavBar';
 import RegisterPage from './pages/RegisterPage';
 import FAQPage from './pages/FAQPage';
-import EventsPage from './pages/EventsPage'
+import EventsPage from './pages/EventsPage';
+import AdminPage from './pages/AdminPage';
 
 const route = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const route = createBrowserRouter([
   {
     path: '/event/:eventId',
     element: <EventsPage />,
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
   {
     path: '/*',

@@ -1,10 +1,10 @@
 
 
-function EventsPage() {
+function AdminPage() {
     return (
         <div>
         </div>
     );
 }
 
-export default EventsPage;
+export default AdminPage;
