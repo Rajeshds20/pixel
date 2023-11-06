@@ -51,7 +51,8 @@ const CoordinatorsSection = () => {
 
 
     return (
-        <><h1>Coordinators Team</h1>
+        <>
+            <h1 style={{ color: 'white' }}>Coordinators :</h1>
             <div className="coordinators-section">
                 <div className="faculty-coordinators">
                     {facultyCoordinators.map(coordinator => (
