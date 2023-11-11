@@ -1,6 +1,7 @@
+
 import { useEffect, useState } from 'react';
 import Event from './Event';
-
+import "../assets/css/EventSection.css";
 const EventsSection = () => {
 
     const [events, setEvents] = useState([]);
@@ -13,18 +14,22 @@ const EventsSection = () => {
     }, []);
 
     return (
-        <div className="events-section" id='events'>
+        <div className="events-section" id='events' >
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-12">
                         <h2 className="section-title">Pixel Events</h2>
                     </div>
                 </div>
+
                 <div className="events-list row">
                     {events?.map((event, index) => (
                         <Event key={index} event={event} />
                     ))}
+
                 </div>
+
+
             </div>
         </div>
     );

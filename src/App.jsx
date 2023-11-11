@@ -22,8 +22,8 @@ const route = createBrowserRouter([
     element: <FAQPage />,
   },
   {
-    path: '/event/:eventId',
-    element: <EventsPage />,
+    path: '/events/:event',
+    element: <EventsPage event />,
   },
   {
     path: '/admin',

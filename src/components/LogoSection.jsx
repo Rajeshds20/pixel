@@ -1,4 +1,5 @@
-import PixelLogo from '../assets/img/pixellogo-l.png'
+import Typewriter from 'typewriter-effect';
+import PixelLogo from '../assets/img/Pixel_logo.png'
 
 const LogoSection = () => {
     return (
@@ -16,13 +17,23 @@ const LogoSection = () => {
                     Jawaharlal Nehru Technological University,Anantapur
                     <br />
                     <br />
-                    💥💥Spot Registrations are Available.💥💥
+                    <p className='spot-registrations'>
+                        <Typewriter
+                            options={{
+                                strings: ['Spot Registrations are Available.💥💥'],
+                                autoStart: true,
+                                loop: true,
+                                cursor: '💥',
+                            }}
+                        />
+                    </p>
+                    {/* 💥💥Spot Registrations are Available.💥💥 */}
                 </h5>
             </div>
             {/* Pixel Date and Venue, makers details with bootstrap class styles */}
             <div className='date-venue'>
                 <h2 className='date-venue-heading'>Venue Details</h2>
-                <h4 className='date'>Date: 27th & 28th October 2023</h4>
+                <h4 className='date'>Date: 24th & 25th November 2023</h4>
                 <h4 className='venue'>Venue: CSE, JNTUA College of Engineering, Anantapur</h4>
                 <h4 className='makers'>Made with ❤️ by <a href='/'>Team Pixel</a></h4>
             </div>

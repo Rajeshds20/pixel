@@ -1,9 +1,9 @@
+import EventPage from "./EventPage";
 
 
 function EventsPage() {
     return (
-        <div>
-        </div>
+        <EventPage />
     );
 }
 

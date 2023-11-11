@@ -158,6 +158,7 @@
     animation: fadeIn 1s ease-in-out;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -165,7 +166,7 @@
     width: 350px;
     height: 350px;
     margin-right: 0;
-    margin-left: -100px;
+    /* margin-left: -100px; */
 }
 
 .pixel-heading {
@@ -175,21 +176,22 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(0, 153, 255);
     text-shadow: 0 0 3px rgb(193, 180, 205);
-    margin-top: 200px;
-    margin-left: -100px;
+    /* margin-top: 200px; */
+    /* margin-left: -100px; */
 }
 
 .logo-header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .pixel-desc {
     font-size: 1.4em;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px; */
+    margin-top: 40px;
+    /* margin-right: 20px; */
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(13, 219, 13);
@@ -525,4 +527,15 @@ button {
 .faq-answer.open {
     max-height: 100px;
     /* Adjust as needed */
+}
+
+.spot-registrations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 22px;
 }
