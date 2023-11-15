@@ -5,8 +5,9 @@ const ContactSection = () => {
             <h2 className="section-title">Contact Us</h2>
             <div className="contact-info">
                 <p className="contact-detail">Email: info@pixel2023.com</p>
-                <p className="contact-detail">Phone: 123-456-7890</p>
-                <p className="contact-detail">Address: 123 Main St, Anytown USA</p>
+                {/* <p className="contact-detail">Phone: 123-456-7890</p> */}
+                <p className="contact-detail">Address: <br /> CSE Dept, JNTUA College
+                    <br /> Of Engineering, Anantapur - 515002</p>
             </div>
         </div>
     );

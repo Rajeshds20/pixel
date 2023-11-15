@@ -1,8 +1,14 @@
-import React, { useCallback, useEffect } from 'react';
-import '../assets/css/eventPage.css';
+import React, { useEffect } from 'react';
+import '../../assets/css/eventPage.css'
 import { useState } from "react";
-// import quizbackimg from "../images/quizbackimg.jpg";
-function EventPage() {
+function QuizPage() {
+    // States for registration
+    const [name, setName] = useState('');
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    // States for checking the errors
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState(false);
 
     const [loading, setLoading] = useState(true);
 
@@ -32,7 +38,22 @@ function EventPage() {
             })
     }, []);
 
-    const displayRazorpay = async (amount) => {
+    const submitDetails = (data) => {
+        fetch(`${API_URL}/user/participate`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }).then((res) => {
+            console.log("Request complete! response:", res);
+        }).catch((err) => {
+            console.log(err);
+            alert("An error occured while submitting the form, if payment done, please contact the coordinators");
+        });
+    };
+
+    const displayRazorpay = async (amount, data) => {
 
         const options = {
             key: 'rzp_test_mwXmMltciIIPKM',
@@ -46,6 +67,7 @@ function EventPage() {
                 alert(response.razorpay_payment_id)
                 if (response.razorpay_payment_id) {
                     alert("Payment Successful")
+                    submitDetails({ ...data, event: 'freefire' });
                 } else {
                     alert("Payment Failed")
                 }
@@ -59,66 +81,36 @@ function EventPage() {
         paymentObject.open()
     }
 
-    // States for registration
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [Collegename, setCollegename] = useState('');
-    const [course, setCourse] = useState('B.Tech');
-    const [year, setYear] = useState('1st');
-    const [teamsize, setTeamsize] = useState('1');
-    const [phonenumber, setPhonenumber] = useState('');
-
-    // States for checking the errors
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
-
-    // Handling the name change
-    const handleName = (e) => {
-        setName(e.target.value);
-        setSubmitted(false);
-    };
-
-    // Handling the email change
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-        setSubmitted(false);
-    };
-
-    // Handling the password change
-    const handleCollegename = (e) => {
-        setCollegename(e.target.value);
-        setSubmitted(false);
-    };
-
-    const handleCourse = (e) => {
-        setCourse(e.target.value);
-        setSubmitted(false);
-    };
-
-    // Handling the year change
-    const handleYear = (e) => {
-        setYear(e.target.value);
-        setSubmitted(false);
-    };
-
-    const handlePhonenumber = (e) => {
-        setPhonenumber(e.target.value);
-        setSubmitted(false);
-    };
-
-    const handleTeamsize = (e) => {
-        setTeamsize(e.target.value);
-        setSubmitted(false);
-    };
-
     // Handling the form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (name === '' || email === '' || Collegename === '' || course === '' || year === '' || phonenumber === '' || teamsize === '') {
-            setError(true);
+        const data = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            college: e.target.college.value,
+            branch: e.target.course.value,
+            year: e.target.year.value,
+            size: e.target.size.value,
+            phone: e.target.phone.value,
+            event: 'chess',
+        }
+        console.log(data);
+
+        // Checking if all the fields are filled
+        if (data.name === '' || data.email === '' || data.college === '' || data.phone === '') {
+            alert('Please enter all the fields');
         } else {
-            setSubmitted(true);
+            // console.log('Data : ', data);
             setError(false);
+            setSubmitted(true);
+            setName(data.name);
+            // Sending the form data to the backend
+            if (data.size == '1')
+                displayRazorpay(5000, data);
+            else if (data.size == '2')
+                displayRazorpay(9000, data);
+            else
+                displayRazorpay(18000, data);
         }
     };
 
@@ -151,14 +143,15 @@ function EventPage() {
     return (
         <div className="mainbody">
             <div className="header1">
-                <h1>QUIZ</h1>
+                <h1>GAMING ARENA</h1>
             </div>
-            {/* <img src={quizbackimg} alt="quiz Event" style={{ width: "100%", borderRadius: "5px" }} /> */}
             <br /><br />
             <div className="box1">
                 <h3>About the Event</h3>
                 <br />
-                <h5>Quiz, a contest in which participants test what they know by answering questions on one or more topics.You will be given a set of technical questions that are chosen by our team and you are expected to answer those correctly.You will be competing against many others.The one who answers the more questions will win the exciting prizes...</h5>
+                <h5>
+                    Gaming Arena, is a competetion where the participant should play the battle royale games either individually or group together and the one who survives till the end will be declared as winner.
+                </h5>
                 <br />
                 <h5>This is an online event and a <i>Single Person</i> event</h5>
                 <br /><br />
@@ -167,14 +160,18 @@ function EventPage() {
                         <h3>Date</h3>
                         <h5>25th November,2023</h5>
                         <br />
-                        <h3>Time</h3>
-                        <h5>......</h5>
+                        <h3>Prizes</h3>
+                        <h5>Rs.800 and
+                            Rs.350</h5>
                         <hr style={{ color: "yellow" }} />
-                        <h3>Rs.100/-</h3>
+                        <h3>Rs.50/-</h3>
                         <h5>Team of 1 member</h5>
                         <hr style={{ color: "yellow" }} />
-                        <h3>Rs.200/-</h3>
-                        <h5>Team of 2-4 members</h5>
+                        <h3>Rs.90/-</h3>
+                        <h5>Team of 2 members</h5>
+                        <hr style={{ color: "yellow" }} />
+                        <h3>Rs.180/-</h3>
+                        <h5>Team of 3-4 members</h5>
                     </div>
                 </div>
             </div>
@@ -194,29 +191,29 @@ function EventPage() {
                     <h3>User Registration</h3>
                 </div>
                 <br />
-                <form>
+                <form onSubmit={handleSubmit}>
                     {/* Labels and inputs for form data */}
                     <label className="label">Name</label>
-                    <input onChange={handleName} className="input"
-                        value={name} type="text" />
+                    <input required={true} name='name' className="input"
+                        type="text" />
 
                     <label className="label">Email</label>
-                    <input onChange={handleEmail} className="input"
-                        value={email} type="email" />
+                    <input required={true} name='email' className="input"
+                        type="email" />
 
                     <label className="label">College Name</label>
-                    <input onChange={handleCollegename} className="input"
-                        value={Collegename} type="text" />
+                    <input required={true} name='college' className="input"
+                        type="text" />
 
                     <label className="label">Course</label>
-                    <select onChange={handleCourse} className="input" value={course}>
+                    <select name='course' required={true} className="input">
                         <option value="B.Tech">B.Tech</option>
                         <option value="M.Tech">M.Tech</option>
-                        <option value="M.Sc">M.Sc</option>
+                        <option value="M.Sc">MCA</option>
                     </select>
 
                     <label className="label">Year</label>
-                    <select onChange={handleYear} className="input" value={year}>
+                    <select required={true} name='year' className="input">
                         <option value="1st">1st</option>
                         <option value="2nd">2nd</option>
                         <option value="3rd">3rd</option>
@@ -224,7 +221,7 @@ function EventPage() {
                     </select>
 
                     <label className="label">Team Size</label>
-                    <select onChange={handleTeamsize} className="input" value={teamsize}>
+                    <select required={true} name='size' className="input">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -232,24 +229,14 @@ function EventPage() {
                     </select>
 
                     <label className="label">Phone Number</label>
-                    <input onChange={handlePhonenumber} className="input"
-                        value={phonenumber} type="integer" />
+                    <input required={true} name='phone' className="input" type="integer" />
 
-                    <button onClick={() => {
-                        displayRazorpay(500)
-                    }} className="btn"
-                        style={{ cursor: loading ? 'not-allowed' : 'pointer' }}
-                        disabled={loading}
+                    <button className="btn"
                         type="submit">
                         {
-                            loading ? 'Loading...' : 'Submit'
+                            loading ? "Loading..." : "Submit"
                         }
                     </button>
-
-                    <div className="messages">
-                        {errorMessage()}
-                        {successMessage()}
-                    </div>
                 </form>
             </div>
             <br />
@@ -273,13 +260,13 @@ function EventPage() {
                 <h3>Event Coordinators</h3>
                 <br />
                 <div className='box5content'>
-                    <h4>xyz</h4>
-                    <h5>Phone:999999999</h5>
-                    <h5>Email:abc@gmail.com</h5>
+                    <h4>CH. Krishna</h4>
+                    <h5>Phone: 9390679236</h5>
+                    <h5>Email: krishnachalla0804@gmail.com</h5>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
-export default EventPage;
+export default QuizPage;

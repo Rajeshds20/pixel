@@ -2,6 +2,9 @@
 import { useState } from 'react';
 
 function RegisterPage() {
+
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const [formData, setFormData] = useState({
         name: '',
         year: '',
@@ -34,6 +37,19 @@ function RegisterPage() {
         if (Object.keys(errors).length === 0) {
             // Submit form data to server
             console.log(formData);
+            fetch(`${API_URL}/user/register`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            }).then(res => {
+                alert('Successfully registered for Pixel 2023');
+                console.log(res);
+            }).catch(err => {
+                console.log('Unable to register, try again later');
+                console.log(err);
+            })
         } else {
             setFormErrors(errors);
         }
@@ -44,7 +60,7 @@ function RegisterPage() {
         if (!data.name) {
             errors.name = 'Name is required';
         }
-        if (!data.year) {
+        if (!data.year || data.year == 'No') {
             errors.year = 'Year is required';
         }
         if (!data.branch) {
@@ -68,7 +84,7 @@ function RegisterPage() {
 
     return (
         <div className="register-page">
-            <h1>Register</h1>
+            <h1 style={{ color: 'blue' }}>Register</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
@@ -89,6 +105,7 @@ function RegisterPage() {
                         value={formData.year}
                         onChange={handleInputChange}
                     >
+                        <option value="No">Not Selected</option>
                         <option value="1">I</option>
                         <option value="2">II</option>
                         <option value="3">III</option>

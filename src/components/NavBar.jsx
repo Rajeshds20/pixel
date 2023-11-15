@@ -38,10 +38,14 @@ const NavBar = () => {
                             Events
                         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="/">Coding Clash</a>
-                            <a className="dropdown-item" href="/">Paper Presentation</a>
-                            <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="/#events">All Events</a>
+                            <a className="dropdown-item" href="/events/coding">Coding</a>
+                            <a className="dropdown-item" href="/events/paperpresentation">Paper Presentation</a>
+                            <a className="dropdown-item" href="/events/memes">Memes</a>
+                            <a className="dropdown-item" href="/events/hackathon">Hackathon</a>
+                            <a className="dropdown-item" href="/events/quiz">Quiz</a>
+                            <a className="dropdown-item" href="/events/photography">Photography</a>
+                            <a className="dropdown-item" href="/events/chess">Chess</a>
+                            <a className="dropdown-item" href="/events/freefire">Freefire</a>
                         </div>
                     </li>
                     <li className="nav-item">

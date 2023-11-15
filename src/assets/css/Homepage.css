@@ -166,6 +166,7 @@
     width: 350px;
     height: 350px;
     margin-right: 0;
+    margin-bottom: 20px;
     /* margin-left: -100px; */
 }
 
@@ -207,7 +208,7 @@
 
     .pixel-logo {
         margin-right: 0;
-        margin-left: -50px;
+        /* margin-left: -50px; */
     }
 
     .pixel-heading {
@@ -275,7 +276,7 @@
 }
 
 .gallery-section {
-    height: 100vh;
+    /* height: 100vh; */
     overflow-x: hidden;
 }
 

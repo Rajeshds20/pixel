@@ -14,37 +14,24 @@ const FAQPage = () => {
     };
     const data = [
         {
-            question: 'Question 1',
-            answer: `Aliqua sint sint excepteur eu sint consectetur cupidatat ex sint reprehenderit laboris. Nisi duis tempor aliquip laborum veniam non magna officia aute. Officia veniam dolore tempor id ut. Et culpa sint do ad pariatur voluptate occaecat consequat adipisicing duis anim excepteur. Officia labore quis elit ut ut sit ex tempor ut eu dolor nostrud. Irure exercitation fugiat est adipisicing eiusmod ut veniam aliqua nostrud consequat eiusmod eiusmod irure cillum.
-Laboris laboris adipisicing do veniam cupidatat dolor quis ipsum amet eiusmod velit eiusmod et.Aliqua do qui aliquip id incididunt do.Nulla et cupidatat officia proident irure adipisicing ad aliquip officia aliquip.`,
+            question: '1. Is candidate necessary for registration?',
+            answer: `Yes`,
         },
         {
-            question: 'Question 2',
-            answer: `
-            Irure est qui excepteur culpa in excepteur dolor nulla voluptate do anim proident occaecat. Enim ex excepteur enim excepteur nostrud deserunt ad enim culpa laboris officia. Velit laborum ad labore culpa magna eu laborum ipsum fugiat culpa duis excepteur nisi.
-            Laboris sint commodo Lorem minim consectetur laboris. Proident cupidatat mollit sit qui non aliquip ex. Pariatur labore do amet ex aliqua voluptate magna ea. Tempor veniam sunt qui sint cillum dolore mollit anim aliqua sint ex. Commodo incididunt culpa do ullamco anim labore. Nostrud incididunt occaecat Lorem commodo nisi qui anim eiusmod dolore labore id ut exercitation pariatur. Est irure adipisicing officia dolore.`,
+            question: '2. Can any other candidate replace an enrolled candidate?',
+            answer: `Yes. On specific conditions.`
         },
         {
-            question: 'Question 3',
-            answer: `Aliqua sint sint excepteur eu sint consectetur cupidatat ex sint reprehenderit laboris. Nisi duis tempor aliquip laborum veniam non magna officia aute. Officia veniam dolore tempor id ut. Et culpa sint do ad pariatur voluptate occaecat consequat adipisicing duis anim excepteur. Officia labore quis elit ut ut sit ex tempor ut eu dolor nostrud. Irure exercitation fugiat est adipisicing eiusmod ut veniam aliqua nostrud consequat eiusmod eiusmod irure cillum.
-Laboris laboris adipisicing do veniam cupidatat dolor quis ipsum amet eiusmod velit eiusmod et.Aliqua do qui aliquip id incididunt do.Nulla et cupidatat officia proident irure adipisicing ad aliquip officia aliquip.`,
+            question: '3. Is payment procedure can be made both in online and offline?',
+            answer: `No, Payment must be done online. For Spot registrations payment must be done offline.`,
         },
         {
-            question: 'Question 4',
-            answer: `
-            Irure est qui excepteur culpa in excepteur dolor nulla voluptate do anim proident occaecat. Enim ex excepteur enim excepteur nostrud deserunt ad enim culpa laboris officia. Velit laborum ad labore culpa magna eu laborum ipsum fugiat culpa duis excepteur nisi.
-            Laboris sint commodo Lorem minim consectetur laboris. Proident cupidatat mollit sit qui non aliquip ex. Pariatur labore do amet ex aliqua voluptate magna ea. Tempor veniam sunt qui sint cillum dolore mollit anim aliqua sint ex. Commodo incididunt culpa do ullamco anim labore. Nostrud incididunt occaecat Lorem commodo nisi qui anim eiusmod dolore labore id ut exercitation pariatur. Est irure adipisicing officia dolore.`,
+            question: '4. What are the sources online for payment?',
+            answer: `Debit Card, Credit card, net banking, UPI,etc...`
         },
         {
-            question: 'Question 5',
-            answer: `Aliqua sint sint excepteur eu sint consectetur cupidatat ex sint reprehenderit laboris. Nisi duis tempor aliquip laborum veniam non magna officia aute. Officia veniam dolore tempor id ut. Et culpa sint do ad pariatur voluptate occaecat consequat adipisicing duis anim excepteur. Officia labore quis elit ut ut sit ex tempor ut eu dolor nostrud. Irure exercitation fugiat est adipisicing eiusmod ut veniam aliqua nostrud consequat eiusmod eiusmod irure cillum.
-Laboris laboris adipisicing do veniam cupidatat dolor quis ipsum amet eiusmod velit eiusmod et.Aliqua do qui aliquip id incididunt do.Nulla et cupidatat officia proident irure adipisicing ad aliquip officia aliquip.`,
-        },
-        {
-            question: 'Question 6',
-            answer: `
-            Irure est qui excepteur culpa in excepteur dolor nulla voluptate do anim proident occaecat. Enim ex excepteur enim excepteur nostrud deserunt ad enim culpa laboris officia. Velit laborum ad labore culpa magna eu laborum ipsum fugiat culpa duis excepteur nisi.
-            Laboris sint commodo Lorem minim consectetur laboris. Proident cupidatat mollit sit qui non aliquip ex. Pariatur labore do amet ex aliqua voluptate magna ea. Tempor veniam sunt qui sint cillum dolore mollit anim aliqua sint ex. Commodo incididunt culpa do ullamco anim labore. Nostrud incididunt occaecat Lorem commodo nisi qui anim eiusmod dolore labore id ut exercitation pariatur. Est irure adipisicing officia dolore.`,
+            question: '6. What is payment cancellation policy?',
+            answer: `Your amount is not refunded.`
         },
     ];
 
@@ -52,12 +39,12 @@ Laboris laboris adipisicing do veniam cupidatat dolor quis ipsum amet eiusmod ve
         <div className="faq-section">
             {data.map((item, index) => (
                 <div className="faq-item" key={index}>
-                    <h3 onClick={() => toggleQuestion(index)} className="faq-question">
+                    <h3 onClick={() => toggleQuestion(index)} style={{ display: 'flex', justifyContent: 'space-between', alignContent: 'center', alignItems: 'center' }} className="faq-question">
                         {item.question}
                         {selectedQuestion === index ? (
-                            <img className="faq-arrow" src={ArrowUp} alt="arrowup" />
+                            <img className="faq-arrow" style={{ width: '30px' }} src={ArrowUp} alt="arrowup" />
                         ) : (
-                            <img className="faq-arrow" src={ArrowDown} alt="arrowdown" />
+                            <img className="faq-arrow" style={{ width: '30px' }} src={ArrowDown} alt="arrowdown" />
                         )}
                     </h3>
                     <p className={`faq-answer ${selectedQuestion === index ? 'open' : ''}`}>

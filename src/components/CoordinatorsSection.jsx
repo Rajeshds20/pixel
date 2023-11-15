@@ -8,55 +8,50 @@ const CoordinatorsSection = () => {
 
     const facultyCoordinators = [
         {
-            name: 'K Bharati, HOD CSE',
-            designation: 'Faculty Coordinator,',
+            name: 'Prof. A.P.Siva Kumar',
+            designation: 'Prof, CSE',
             image: 'https://picsum.photos/seed/picsum/400/400'
         },
         {
-            name: 'Prof.P. Shobha Bindu, Professor',
-            designation: 'Faculty Coordinator',
-            image: 'https://picsum.photos/seed/picsum/400/400'
+            name: 'Dr. K.F. Bharati',
+            designation: 'HOD, CSE,',
+            image: 'https://pixel2023.com/images/bharati.png'
         },
         {
-            name: 'Prof. A.P.Siva Kumar, Professor',
-            designation: 'Faculty Coordinator',
+            name: 'Dr. Jessica Saritha',
+            designation: 'Asst. Prof, Dept of CSE',
             image: 'https://picsum.photos/seed/picsum/400/400'
-        }
+        },
     ];
 
     const studentCoordinators = [
         {
             name: 'Madhu Bandaru',
-            designation: 'Students Coordinator',
-            email: "madhubandaru@gmail.com",
+            designation: 'Students Coordinator (B.Tech)',
+            email: "bmadhu030602@gmail.com",
             phoneNumber: 9392056482
         },
         {
-            name: 'Dummy',
+            name: 'T.Jayasree',
             designation: 'Student Coordinator',
+            email: 'tippaletijayasree02@gmail.com',
+            phoneNumber: '6300167242',
             image: 'https://picsum.photos/seed/picsum/400/400'
         },
         {
-            name: 'Dummy',
+            name: 'K.Subhadhra',
             designation: 'Student Coordinator',
+            phoneNumber: '9052994402',
+            email: 'subhadrakantle.@gmail.com',
             image: 'https://picsum.photos/seed/picsum/400/400'
         },
         {
-            name: 'Dummy',
+            name: 'S.Amith Vikram',
             designation: 'Student Coordinator',
+            phoneNumber: '9392790769',
+            email: 'subhadrakantle@gmail.com',
             image: 'https://picsum.photos/seed/picsum/400/400'
         },
-        {
-            name: 'Dummy',
-            designation: 'Student Coordinator',
-            image: 'https://picsum.photos/seed/picsum/400/400'
-        },
-        {
-            name: 'Dummy',
-            designation: 'Student Coordinator',
-            image: 'https://picsum.photos/seed/picsum/400/400'
-        }
-
     ];
 
     const defaultOptions = {
@@ -73,12 +68,12 @@ const CoordinatorsSection = () => {
 
     return (
         <>
-            <h1 style={{ color: 'white' }}>Pixel Coordinators :</h1>
+            <h2 style={{ fontSize: '2.8rem' }}>Pixel Coordinators</h2>
             <div className="coordinators-section">
                 <div className="faculty-coordinators">
                     {facultyCoordinators.map(coordinator => (
                         <Tilt options={defaultOptions} key={coordinator.name} style={{ backgroundColor: '#482239', borderRadius: '20px' }}>
-                            <div className="coordinator-card" key={coordinator.name}>
+                            <div className="coordinator-card" key={coordinator.name} style={{ margin: '0px', padding: '5px', width: '210px' }}>
                                 <img src={coordinator.image} alt={coordinator.name} className="coordinator-image" />
                                 <center><h2 className="coordinator-name">{coordinator.name}</h2></center>
                                 <center><p className="coordinator-designation">{coordinator.designation}</p></center>

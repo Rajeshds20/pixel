@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: column wrap;
     min-width: none;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .coordinators-section>* {

@@ -17,11 +17,9 @@ function Homepage() {
             <LogoSection />
             <EventsSection />
             <GallerySection />
-            <div style={{ marginTop: '-400px' }}>
-                <SponsorsSection />
-                <CoordinatorsSection />
-                <ContactSection />
-            </div>
+            {/* <SponsorsSection /> */}
+            <CoordinatorsSection />
+            <ContactSection />
             {/* <Footer /> */}
         </div>
     );
